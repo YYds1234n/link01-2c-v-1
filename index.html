@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>正在跳转</title>
+</head>
+<body>
+<script>
+const urlParams = new URLSearchParams(window.location.search);
+const base64Str = urlParams.get('aHR0cHM6Ly85dHNrLmNvbS9wdWJsaWMvaG9tZV92MS5waHA=');
+if(base64Str){
+    try{
+        const realUrl = atob(base64Str);
+        window.location.href = realUrl;
+    }catch(e){
+        document.body.innerText="链接错误";
+    }
+}else{
+    document.body.innerText="缺少跳转参数 c";
+}
+</script>
+</body>
+</html>
